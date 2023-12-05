@@ -1,4 +1,3 @@
-import webbrowser
 from http.server import HTTPServer, BaseHTTPRequestHandler
 
 class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
@@ -11,8 +10,6 @@ class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
             with open('index.html', 'r') as file:
                 content = file.read()
             self.wfile.write(content.encode('utf-8'))
-            # Открываем браузер по GET-запросу
-            webbrowser.open_new_tab('http://localhost:8000')
         else:
             self.send_response(404)
             self.end_headers()
